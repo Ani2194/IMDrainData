@@ -12,21 +12,23 @@ import pip
 import imdlib as imd
 import geopandas as gpd 
 import pandas as pd 
-#start_yr = 1970
-#end_yr = 2020
-#variable = 'rain' # other options are ('tmin'/ 'tmax')
-#data = imd.get_data(variable, start_yr, end_yr, fn_format='yearwise')
+
+# download the rain data .grd format
+start_yr = 1970 
+end_yr = 2020
+variable = 'rain' # other options are ('tmin'/ 'tmax')
+data1 = imd.get_data(variable, start_yr, end_yr, fn_format='yearwise')
 #ds = data.get_xarray()
 
 
 
 
-Rain1970 = 'D:\\Jalasmruti\\rain'
+Rain = 'D:\\Jalasmruti\\rain'
 start_yr = 1970 # give starting year from which you want to download/convert data: 1901 ownwards for rainfall, 1951 for tmax and tmin
 end_yr = 2020 # give ending year upto which you want to download/convert data
 variable = 'rain' # give variable name (rain for rainfall at 0.25 deg, tmax or tmin for rainfall, min or max temperature at 1 deg resolution)
 file_format = 'yearwise' # other option (None), which will assume deafult imd naming convention
-file_dir = Rain1970 # this path should be same as mentioned in previous line
+file_dir = Rain # this path should be same as mentioned in previous line
 data = imd.open_data(variable, start_yr, end_yr,'yearwise', file_dir) # this will open the data downloaded and saved in the location mentioned in previous line
 if variable == 'rain':
     grid_size = 0.25 # grid spacing in deg
